@@ -12,5 +12,6 @@ class Album(models.Model):
 
 	def __unicode__(self):
 		return "{} - {}".format(self.name, self.release_year)
-
+	Class Meta:
+		verbose_name = u"Альбом"
 # Create your models here.
