@@ -5,13 +5,13 @@
 
 	<!-- {% static "my_app/example.jpg" %} -->
 		<title></title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="{% static 'albums/css/reset.css' %}" type="text/css" media="screen">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 		<link rel="stylesheet" href="{% static 'albums/css/reset.css' %}" type="text/css" media="screen">
 		<link rel="stylesheet" href="{% static 'albums/css/style.css' %}" type="text/css" media="screen">
 		<link rel="stylesheet" href="{% static 'albums/css/grid.css' %}" type="text/css" media="screen">
 		<link rel="stylesheet" href="{% static 'albums/css/prettyPhoto.css' %}" type="text/css" media="screen">   
 		<script src="{% static 'albums/js/jquery-1.6.3.min.js' %}" type="text/javascript"></script>
-		<script src="{% static 'albums/js/cufon-yui.js' %}" type="text/javascript"></script>
+		<!--<script src="{% static 'albums/js/cufon-yui.js' %}" type="text/javascript"></script> -->
 		<script src="{% static 'albums/js/cufon-replace.js' %}" type="text/javascript"></script>
 		<script src="{% static 'albums/js/Vegur_700.font.js' %}" type="text/javascript"></script>
 		<script src="{% static 'albums/js/Vegur_400.font.js' %}" type="text/javascript"></script> 
@@ -25,6 +25,7 @@
 		<script type="text/javascript" src="{% static 'albums/js/tms-0.3.js' %}"></script>
 		<script type="text/javascript" src="{% static 'albums/js/tms_presets.js' %}"></script>
 		<script type="text/javascript">
+
 			$(window).load(function(){
 				$('.slider')._TMS({
 					duration:800,
@@ -50,6 +51,11 @@
 			<script type="text/javascript" src="js/html5.js"></script>
 			<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 		<![endif]-->
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?136"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: API_ID, onlyWidgets: true});
+</script>
 	</head>
 	<body id="page1">
 		<div class="extra">
@@ -57,7 +63,7 @@
 			<header>
 				<div class="main">
 					<div class="bg-1">
-						<h1><a href="index.html">Rock Band</a></h1>
+						<h1><a href="/"></a></h1>
 					</div>
 					<nav>
 						<div class="menu-bg-tail">
@@ -65,12 +71,12 @@
 								<div class="container_12">
 									<div class="grid_12">
 										<ul class="menu">
-											<li class="item"><a class="active" href="index.html">About</a></li>
-											<li><a href="audio.html">Audio</a></li>
-											<li><a href="video.html">Video</a></li>
-											<li><a href="gallery.html">Gallery</a></li>
-											<li class="item-1"><a href="tour-dates.html">Tour Dates</a></li>
-											<li class="last"><a href="contacts.html">Contacts</a></li>
+											<li class="item"><a href="{% url 'about' %}">О нас</a></li>
+											<li ><a href="{% url 'albums' %}">Альбомы</a></li>
+											<li><a href="{% url 'videos' %}">Видео</a></li>
+											<li><a href="{% url 'photos' %}">Фото</a></li>
+											<li class="item-1"><a href="tour-dates.html">Концерты</a></li>
+											<li class="last"><a href="contacts.html">Контакты</a></li>
 										</ul>
 										<div class="clear"></div>
 									</div>
@@ -79,6 +85,7 @@
 							</div>
 						</div>
 					</nav>
+					{% block slider %}
 					<div class="slider-wrapper">
 						<div class="slider">
 							<ul class="items">
@@ -92,9 +99,11 @@
 							</ul> 
 						</div>
 					</div>
+					{% endblock slider %}
 				</div>
 			</header>
 <!--==============================content================================-->
+{% block content %}
 			<section id="content"><div class="ic">More Website Templates @ TemplateMonster.com. November 21, 2011!</div>
 				<div class="main">
 					<div class="bg-2">
@@ -215,6 +224,8 @@
 				<div class="block"></div>
 			</section>
 		</div>
+		{% endblock content%}
+
 <!--==============================footer=================================-->
 		<footer>
 			<div class="main">
@@ -224,7 +235,7 @@
 							<div class="grid_12">
 								<div class="footer-padding">
 									<div class="wrapper">
-										<span class="footer-link"><span>Superior.com &copy; 2011</span> <a rel="nofollow" target="_blank" class="link" href="">Website Template</a> by TemplateMonster.com</span>
+										<span class="footer-link"><span>www.skrizhali.by &copy; 2016</span> </span>
 										<ul class="list-services">
 											<li><a class="tooltips n-1" title="Twitter" href="#"></a></li>
 											<li><a class="tooltips n-2" title="Facebook" href="#"></a></li>

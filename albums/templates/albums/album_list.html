@@ -1,5 +1,36 @@
-This is album list
+{% extends 'index.html' %}
+{%load static%}
+{% block slider %}
+					
+{% endblock slider %}
+		{% block content %}
+	<section id="content">
 
-1)
-2)
-...
+			<div class="ic">More Website Templates @ TemplateMonster.com. November 21, 2011!</div>
+				<div class="main">
+					<div class="bg-2">
+						<div class="content-padding-1">
+							<div class="container_12">
+								<div class="wrapper">
+									{% for album in album_list%}
+									<article class="grid_4">
+										<div class="padding-grid-1">
+										<a href="{% url 'album_detail' pk=album.pk %}"><img src= "{% static album.cover %}" width="250"></a> 										
+											<div class="wrapper">
+												<div class="extra-wrap">
+													Название альбома: <h4 class="indent-top"><a href="#">{{ album.name}}</a></h4>
+													Год релиза: <h4 class="indent-top"><a href="#">{{album.release_year}}</a></h4>
+
+												</div>
+											</div>
+										</div>
+									</article>	
+									{% endfor%}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block"></div>
+			</section>
+		</div>
+		{% endblock %}

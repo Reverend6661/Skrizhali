@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'albums',
+    'videos',
+    'djrill',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['albums/templates'],
+        'DIRS': ['albums/templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,8 +120,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-
-
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+
+MANDRILL_API_KEY = "5MLxhf_nRP-JqDPghOdQPg"
+
+DEFAULT_FROM_EMAIL = 'sergeypugach18@gmail.com'
+
+MEDIA_ROOT='/home/siarhei/test/Skrizhali/mysite' 
+MEDIA_URL='/media/'
+#Email settings
+#EMAIL_USE_TLS = True

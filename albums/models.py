@@ -6,12 +6,13 @@ class Album(models.Model):
 
 	name = models.CharField(max_length=75)
 	release_year = models.CharField(max_length=4)
-	cover = models.ImageField()
+	cover = models.ImageField(upload_to = 'albums/static')
 	link = models.URLField(max_length=100)
 	songs_list = models.TextField()
 
 	def __unicode__(self):
 		return "{} - {}".format(self.name, self.release_year)
+	
 	class Meta:
-		verbose_name = u"Альбом"
+		verbose_name = "Album"
 # Create your models here.

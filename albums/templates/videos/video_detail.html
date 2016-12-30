@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{%load static%}
+
+{% block slider %}
+					
+{% endblock slider %}
+		{% block content %}
+	<section id="content">
+
+			<div class="ic">More Website Templates @ TemplateMonster.com. November 21, 2011!</div>
+				<div class="main">
+					<div class="bg-2">
+						<div class="content-padding-1">
+							<div class="container_12">
+								<div class="wrapper">
+									<article class="grid_8">
+										<div class="padding-grid-1">
+											<div class="wrapper">
+												<div class="extra-wrap">
+													<h4 class="indent-top"><a href="{% url 'video_detail' pk=video.pk %}">{{ video.name }}</a></h4>
+											         <iframe width="600" height="400" src="https://www.youtube.com/embed/{{video.link}}" frameborder="0" allowfullscreen></iframe>
+
+
+													Дата загрузки: <h4 class="indent-top"><a href="#">{{video.date}}</a></h4>
+													<!-- Put this script tag to the <head> of your page -->
+
+
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, width: "650", attach: "*"});
+</script>
+
+												</div>
+											</div>
+										</div>
+									</article>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block"></div>
+			</section>
+		</div>
+		{% endblock %}
