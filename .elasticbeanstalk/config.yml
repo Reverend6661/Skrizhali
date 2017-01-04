@@ -3,6 +3,7 @@ branch-defaults:
     environment: Sample-env
   master:
     environment: django-env
+    group_suffix: null
 environment-defaults:
   Sample-env:
     branch: null
@@ -11,9 +12,11 @@ environment-defaults:
     branch: master
     repository: Skrizhali
 global:
-  application_name: Skrizhali
-  default_ec2_keyname: null
-  default_platform: 64bit Amazon Linux 2016.09 v2.3.0 running Python 3.4
+  application_name: django-tutorial
+  branch: master
+  default_ec2_keyname: aws-eb
+  default_platform: python2.7
   default_region: us-west-2
   profile: eb-cli
+  repository: codecommit-origin
   sc: git
