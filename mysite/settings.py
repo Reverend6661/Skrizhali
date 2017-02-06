@@ -27,11 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,7 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'albums',
     'videos',
+    'photo_albums',
+    'news',
     'djrill',
+    'tinymce',
+     'sortedm2m',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +136,7 @@ MANDRILL_API_KEY = "5MLxhf_nRP-JqDPghOdQPg"
 
 DEFAULT_FROM_EMAIL = 'sergeypugach18@gmail.com'
 
-MEDIA_ROOT='/home/siarhei/test/Skrizhali/mysite' 
-MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'albums/static/media/')
+MEDIA_URL='media/'
 #Email settings
 #EMAIL_USE_TLS = True

@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{%load static%}
+
+{% block slider %}
+					
+{% endblock slider %}
+		{% block content %}
+	<section id="content">
+
+			<div class="ic">More Website Templates @ TemplateMonster.com. November 21, 2011!</div>
+				<div class="main">
+					<div class="bg-2">
+						<div class="content-padding-1">
+							<div class="container_12">
+								<div class="wrapper">
+									<article class="grid_11">
+										<div class="padding-grid-1">
+											<div class="wrapper">
+												<div class="extra-wrap">
+													<h4 class="indent-top">{{ news.header }}</h4>
+													<br>
+
+													<img src= "{% static news.image %}" width=100%>
+													<br>
+													<br>
+											       	<div> {{news.content }} </div>
+											       	<br>
+													<br>
+											        Дата новости: {{ news.created_date }}
+
+
+
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, width: "650", attach: "*"});
+</script>
+
+												</div>
+											</div>
+										</div>
+									</article>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block"></div>
+			</section>
+		</div>
+		{% endblock %}

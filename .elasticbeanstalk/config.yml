@@ -1,22 +1,12 @@
 branch-defaults:
-  default:
-    environment: Sample-env
   master:
-    environment: django-env
-    group_suffix: null
-environment-defaults:
-  Sample-env:
-    branch: null
-    repository: null
-  django-env:
-    branch: master
-    repository: Skrizhali
+    environment: mysite-test
 global:
-  application_name: django-tutorial
-  branch: master
-  default_ec2_keyname: aws-eb
-  default_platform: python2.7
-  default_region: us-west-2
+  application_name: mysite
+  branch: null
+  default_ec2_keyname: keypair
+  default_platform: Python 3.4
+  default_region: eu-west-2
   profile: eb-cli
-  repository: codecommit-origin
+  repository: null
   sc: git

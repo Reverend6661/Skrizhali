@@ -2,8 +2,11 @@
 from django.http import HttpResponse
 from albums.models import Album
 from videos.models import Videos
+from photo_albums.models import Photo_album, Photo
+from news.models import News
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import EmailMessage
+
 
 """
 Новости
@@ -17,7 +20,8 @@ from django.core.mail import EmailMessage
 
 # Заглавная страница с новостями
 def index(request):
-    return render(request, 'index.html')
+	news_list = News.objects.all().order_by('created_date')
+	return render(request, 'index.html', {'news_list': news_list})
 
 # Дискография
 def album(request):
@@ -51,25 +55,23 @@ def video_detail(request, pk):
     video.link = str(video.link).split('=')[-1]
     return render(request, 'videos/video_detail.html', {'video': video})
 
+def news(request):
+	news_list = News.objects.all().order_by('-created_date')
+	news_list = news_list[0:5]	
+	return render(request, 'news/news_list.html', {'news_list': news_list})
 
+def news_detail(request, pk):    
+    news = get_object_or_404(News, pk=pk)
+    print news.image
+    news.image = str(news.image).split('/')[-1]
+    return render(request, 'news/news_detail.html', {'news': news})
 
+def photo_album(request):
+	photo_album_list = Photo_album.objects.all()
+	cover_photo = Photo.objects.all()[0]
+	return render(request, 'photo_albums/photo_album_list.html', {'photo_album_list': photo_album_list, 'cover_photo': cover_photo})
 
-
-
-
-
-
-
-
-
-
-
-# Mailchimp send mail
-def envEmail(request):
-	mes = EmailMessage(subject="Subject", from_email="sergeypugach18@gmail.com", to=['sergeypugach18@gmail.com'])
-	mes.template_name='template1'
-	mes.template_content = {
-		'user': u"AdministratorSlide17"
-	}
-	mes.send()
-	return render(request, 'confirmation.html')
+def photo_album_detail(request, pk):    
+    photo_album = get_object_or_404(Photo_album, pk=pk)
+    photos_list = Photo.objects.filter(photo_album=photo_album)
+    return render(request, 'photo_albums/photo_album_detail.html', {'photo_album': photo_album, 'photos_list': photos_list})

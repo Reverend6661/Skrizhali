@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from datetime import datetime    
 
@@ -14,7 +15,9 @@ class Videos(models.Model):
 		return self.name
 	
 	class Meta:
-		verbose_name = "Video"
+		verbose_name = "Видео"
+		verbose_name_plural = "Видео"
+
 
 
 # Create your models here.

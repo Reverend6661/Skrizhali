@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{%load static%}
+{% block slider %}
+					
+{% endblock slider %}
+		{% block content %}
+	<section id="content">
+
+			<div class="ic"></div>
+				<div class="main">
+					<div class="bg-2">
+						<div class="content-padding-1">
+							<div class="container_12">
+								<div class="wrapper">
+									{% for news in news_list%}
+									<article class="grid_6">
+										<div class="padding-grid-1">
+											<div class="wrapper">
+												<div class="extra-wrap" margin-top='20px'>
+
+													<h4 class="indent-top"><a href="{% url 'news_detail' pk=news.pk %}">{{ news.header }}</a></h4>
+											        {{news.content }}
+											        {{ news.created_date }}
+													<br>
+													<br>
+													<br>
+
+
+												</div>
+											</div>
+										</div>
+									</article>	
+									{% endfor%}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block"></div>
+			</section>
+		</div>
+		{% endblock %}
