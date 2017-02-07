@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from django.http import HttpResponse
 from albums.models import Album
 from videos.models import Videos
@@ -31,7 +31,7 @@ def album(request):
 
 	return render(request, 'albums/album_list.html', {'album_list': album_list})
 
-def album_detail(request, pk):    
+def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
     album.cover = str(album.cover).split('/')[-1]
     return render(request, 'albums/album_detail.html', {'album': album})
@@ -50,19 +50,18 @@ def videos(request):
 		video.link = str(video.link).split('=')[-1]
 	return render(request, 'videos/video_list.html', {'video_list': video_list})
 
-def video_detail(request, pk):    
+def video_detail(request, pk):
     video = get_object_or_404(Videos, pk=pk)
     video.link = str(video.link).split('=')[-1]
     return render(request, 'videos/video_detail.html', {'video': video})
 
 def news(request):
 	news_list = News.objects.all().order_by('-created_date')
-	news_list = news_list[0:5]	
+	news_list = news_list[0:5]
 	return render(request, 'news/news_list.html', {'news_list': news_list})
 
-def news_detail(request, pk):    
+def news_detail(request, pk):
     news = get_object_or_404(News, pk=pk)
-    print news.image
     news.image = str(news.image).split('/')[-1]
     return render(request, 'news/news_detail.html', {'news': news})
 
@@ -71,7 +70,7 @@ def photo_album(request):
 	cover_photo = Photo.objects.all()[0]
 	return render(request, 'photo_albums/photo_album_list.html', {'photo_album_list': photo_album_list, 'cover_photo': cover_photo})
 
-def photo_album_detail(request, pk):    
+def photo_album_detail(request, pk):
     photo_album = get_object_or_404(Photo_album, pk=pk)
     photos_list = Photo.objects.filter(photo_album=photo_album)
     return render(request, 'photo_albums/photo_album_detail.html', {'photo_album': photo_album, 'photos_list': photos_list})
