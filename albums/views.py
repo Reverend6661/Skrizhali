@@ -6,6 +6,7 @@ from photo_albums.models import Photo_album, Photo
 from news.models import News
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import EmailMessage
+from django.utils.html import format_html
 
 
 """
@@ -34,6 +35,7 @@ def album(request):
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
     album.cover = str(album.cover).split('/')[-1]
+    album.songs_list = format_html(album.songs_list)
     return render(request, 'albums/album_detail.html', {'album': album})
 
 # О группе

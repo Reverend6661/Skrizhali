@@ -25,7 +25,7 @@ SECRET_KEY = '(ch00iw1nx^7gs^8r!n0!y1u482q=oqtm*si2r0uuenb9q12^x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['slide17.pythonanywhere.com']
+ALLOWED_HOSTS = ['slide17.pythonanywhere.com', '127.0.0.1']
 
 SITE_ID = 1
 
